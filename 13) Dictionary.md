@@ -1,0 +1,584 @@
+# Dictionary — Brutal Sharp Notes
+
+## What is Dictionary?
+
+Dictionary = **Key → Value Mapping**
+
+```python
+student = {
+    "name": "Madan",
+    "age": 25
+}
+```
+
+Think:
+
+```text
+Name  → Madan
+Age   → 25
+```
+
+---
+
+# Core Rules
+
+✅ Mutable
+
+✅ Ordered (Python 3.7+)
+
+✅ Keys must be unique
+
+✅ Values can duplicate
+
+❌ Duplicate keys not allowed
+
+```python
+d = {
+    "a": 1,
+    "a": 2
+}
+
+print(d)
+```
+
+Output
+
+```python
+{'a': 2}
+```
+
+Last value wins.
+
+---
+
+# Creation
+
+```python
+d = {}
+
+d = dict()
+
+d = {
+    1: "one",
+    2: "two"
+}
+
+d = {
+    "name": "Madan",
+    "age": 25
+}
+```
+
+---
+
+# Access Values
+
+## Using []
+
+```python
+d["name"]
+```
+
+Output
+
+```python
+Madan
+```
+
+---
+
+## Using get()
+
+```python
+d.get("name")
+```
+
+Safer.
+
+```python
+d.get("salary")
+```
+
+Output
+
+```python
+None
+```
+
+No error.
+
+---
+
+# Add Items
+
+```python
+d["city"] = "Chennai"
+```
+
+Result
+
+```python
+{
+    "name":"Madan",
+    "city":"Chennai"
+}
+```
+
+---
+
+# Update Items
+
+```python
+d["age"] = 26
+```
+
+or
+
+```python
+d.update({"age":26})
+```
+
+---
+
+# Remove Items
+
+## pop()
+
+```python
+d.pop("age")
+```
+
+Removes specific key.
+
+---
+
+## popitem()
+
+```python
+d.popitem()
+```
+
+Removes last inserted pair.
+
+---
+
+## del
+
+```python
+del d["age"]
+```
+
+---
+
+## clear()
+
+```python
+d.clear()
+```
+
+Empty dictionary.
+
+---
+
+## Delete Entire Dictionary
+
+```python
+del d
+```
+
+---
+
+# Keys
+
+```python
+d.keys()
+```
+
+Output
+
+```python
+dict_keys(['name','age'])
+```
+
+---
+
+# Values
+
+```python
+d.values()
+```
+
+Output
+
+```python
+dict_values(['Madan',25])
+```
+
+---
+
+# Items
+
+```python
+d.items()
+```
+
+Output
+
+```python
+dict_items([
+('name','Madan'),
+('age',25)
+])
+```
+
+---
+
+# Looping
+
+## Keys
+
+```python
+for k in d:
+    print(k)
+```
+
+---
+
+## Values
+
+```python
+for k in d:
+    print(d[k])
+```
+
+---
+
+## Key + Value
+
+```python
+for k,v in d.items():
+    print(k,v)
+```
+
+---
+
+# Membership
+
+```python
+"name" in d
+```
+
+Output
+
+```python
+True
+```
+
+---
+
+```python
+"Madan" in d
+```
+
+Output
+
+```python
+False
+```
+
+⚠ Membership checks KEYS only.
+
+---
+
+# Copy
+
+## Reference Copy
+
+```python
+d2 = d
+```
+
+Same object.
+
+```python
+d["age"] = 30
+```
+
+Both change.
+
+---
+
+## Real Copy
+
+```python
+d2 = d.copy()
+```
+
+Independent object.
+
+---
+
+# Nested Dictionary
+
+```python
+student = {
+    "name":"Madan",
+    "details":{
+        "age":25,
+        "city":"Chennai"
+    }
+}
+```
+
+Access
+
+```python
+student["details"]["city"]
+```
+
+Output
+
+```python
+Chennai
+```
+
+---
+
+# fromkeys()
+
+```python
+keys = ["a","b","c"]
+
+d = dict.fromkeys(keys,0)
+```
+
+Output
+
+```python
+{
+'a':0,
+'b':0,
+'c':0
+}
+```
+
+---
+
+# Dictionary Comprehension
+
+## Double Values
+
+```python
+d = {i:i*2 for i in range(5)}
+```
+
+Output
+
+```python
+{
+0:0,
+1:2,
+2:4,
+3:6,
+4:8
+}
+```
+
+---
+
+## Squares
+
+```python
+d = {i:i*i for i in range(5)}
+```
+
+Output
+
+```python
+{
+0:0,
+1:1,
+2:4,
+3:9,
+4:16
+}
+```
+
+---
+
+# Zip to Dictionary
+
+```python
+keys = ["one","two","three"]
+
+values = [1,2,3]
+
+d = {
+    k:v
+    for k,v in zip(keys,values)
+}
+```
+
+Output
+
+```python
+{
+'one':1,
+'two':2,
+'three':3
+}
+```
+
+---
+
+# Word Frequency (Important)
+
+```python
+s = "one two one two three"
+
+words = s.split()
+
+freq = {}
+
+for word in words:
+    freq[word] = freq.get(word,0) + 1
+
+print(freq)
+```
+
+Output
+
+```python
+{
+'one':2,
+'two':2,
+'three':1
+}
+```
+
+---
+
+# all() and any()
+
+```python
+d = {
+    1:"A",
+    2:"B"
+}
+```
+
+```python
+all(d)
+```
+
+Output
+
+```python
+True
+```
+
+All keys are truthy.
+
+---
+
+```python
+d[0] = "test"
+```
+
+```python
+all(d)
+```
+
+Output
+
+```python
+False
+```
+
+Because key 0 is False.
+
+---
+
+```python
+any(d)
+```
+
+Output
+
+```python
+True
+```
+
+At least one key is True.
+
+---
+
+# Dictionary Memory Trick
+
+Dictionary = Contact Book
+
+```text
+"Madan" → 9876543210
+"John"  → 9999999999
+```
+
+Need phone number?
+
+Use name (key).
+
+---
+
+# Interview Killers
+
+### What is Dictionary?
+
+> Mutable collection of key-value pairs.
+
+### Can keys duplicate?
+
+> No.
+
+### Can values duplicate?
+
+> Yes.
+
+### Fastest way to access value?
+
+```python
+d[key]
+```
+
+### Difference between get() and [] ?
+
+```python
+d["salary"]
+```
+
+❌ Error if key missing.
+
+```python
+d.get("salary")
+```
+
+✅ Returns None.
+
+---
+
+# Golden Rule
+
+```text
+List       → Access by Index
+Tuple      → Fixed Data
+Set        → Unique Data
+Dictionary → Access by Key
+```
+
+# One Line Revision
+
+```text
+Dictionary = Key → Value storage.
+Keys unique.
+Values may repeat.
+Mutable.
+Fast lookup using keys.
+```
