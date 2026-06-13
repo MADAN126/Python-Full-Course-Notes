@@ -1,0 +1,904 @@
+# Python Lists
+
+## What is a List?
+
+A list is an ordered, mutable collection of items.
+
+### Characteristics
+
+- Ordered → Elements maintain insertion order.
+- Mutable → Elements can be added, removed, or modified.
+- Indexed → Each element has an index.
+- Allows duplicates.
+- Can store different data types.
+- Can contain other lists (Nested Lists).
+
+Example:
+
+```python
+mylist = [10, "Python", 3.14, True]
+```
+
+---
+
+# List Creation
+
+## Empty List
+
+```python
+list1 = []
+```
+
+```python
+type(list1)
+```
+
+Output:
+
+```text
+<class 'list'>
+```
+
+---
+
+## List of Integers
+
+```python
+list2 = [10, 30, 60]
+```
+
+---
+
+## List of Floats
+
+```python
+list3 = [10.77, 30.66, 60.89]
+```
+
+---
+
+## List of Strings
+
+```python
+list4 = ['one', 'two', 'three']
+```
+
+---
+
+## Nested List
+
+```python
+list5 = ['Asif', 25, [50, 100], [150, 90]]
+```
+
+---
+
+## Mixed Data Type List
+
+```python
+list6 = [100, 'Asif', 17.765]
+```
+
+---
+
+## Complex List
+
+```python
+list7 = [
+    'Asif',
+    25,
+    [50, 100],
+    [150, 90],
+    {'John', 'David'}
+]
+```
+
+---
+
+## Length of a List
+
+```python
+len(list6)
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# List Indexing
+
+Lists use zero-based indexing.
+
+```text
+['one', 'two', 'three']
+
+  0      1      2
+```
+
+---
+
+## First Element
+
+```python
+list2[0]
+```
+
+Output:
+
+```text
+10
+```
+
+---
+
+## First String
+
+```python
+list4[0]
+```
+
+Output:
+
+```text
+one
+```
+
+---
+
+## Nested Indexing
+
+```python
+list4[0][0]
+```
+
+Output:
+
+```text
+o
+```
+
+Explanation:
+
+```text
+list4[0]     → "one"
+list4[0][0]  → "o"
+```
+
+---
+
+## Last Element
+
+```python
+list4[-1]
+```
+
+Output:
+
+```text
+three
+```
+
+---
+
+## Last Nested List
+
+```python
+list5[-1]
+```
+
+Output:
+
+```python
+[150, 90]
+```
+
+---
+
+# List Slicing
+
+Syntax:
+
+```python
+list[start:end]
+```
+
+Rules:
+
+- Start included.
+- End excluded.
+
+---
+
+## First Three Items
+
+```python
+mylist[:3]
+```
+
+Output:
+
+```python
+['one', 'two', 'three']
+```
+
+---
+
+## Middle Elements
+
+```python
+mylist[2:5]
+```
+
+Output:
+
+```python
+['three', 'four', 'five']
+```
+
+---
+
+## Last Three Elements
+
+```python
+mylist[-3:]
+```
+
+Output:
+
+```python
+['six', 'seven', 'eight']
+```
+
+---
+
+## Entire List
+
+```python
+mylist[:]
+```
+
+Output:
+
+```python
+['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
+```
+
+---
+
+# Adding Elements
+
+## append()
+
+Adds item at the end.
+
+```python
+mylist.append('nine')
+```
+
+Before:
+
+```python
+['one', 'two']
+```
+
+After:
+
+```python
+['one', 'two', 'nine']
+```
+
+---
+
+## insert()
+
+Adds item at a specific index.
+
+```python
+mylist.insert(1, 'ONE')
+```
+
+Output:
+
+```python
+['one', 'ONE', 'two']
+```
+
+---
+
+# Removing Elements
+
+## remove()
+
+Removes first matching value.
+
+```python
+mylist.remove('ONE')
+```
+
+---
+
+## pop()
+
+Removes last element.
+
+```python
+mylist.pop()
+```
+
+---
+
+## pop(index)
+
+Removes element at a specific index.
+
+```python
+mylist.pop(2)
+```
+
+---
+
+## del
+
+Deletes an element.
+
+```python
+del mylist[3]
+```
+
+---
+
+# Updating Elements
+
+Lists are mutable.
+
+```python
+mylist = ['one', 'two', 'three']
+```
+
+Change values:
+
+```python
+mylist[0] = 1
+mylist[1] = 2
+mylist[2] = 3
+```
+
+Output:
+
+```python
+[1, 2, 3]
+```
+
+---
+
+# Clearing a List
+
+## clear()
+
+Removes all elements.
+
+```python
+mylist.clear()
+```
+
+Output:
+
+```python
+[]
+```
+
+---
+
+# Deleting a List
+
+```python
+del mylist
+```
+
+Accessing later:
+
+```python
+mylist
+```
+
+Output:
+
+```text
+NameError
+```
+
+---
+
+# Copying Lists
+
+## Reference Copy
+
+```python
+mylist1 = mylist
+```
+
+Memory:
+
+```text
+mylist ──┐
+         ├──► Same List
+mylist1 ─┘
+```
+
+Both variables refer to the same list.
+
+---
+
+## Real Copy
+
+```python
+mylist2 = mylist.copy()
+```
+
+Memory:
+
+```text
+mylist  ───► List A
+mylist2 ───► List B
+```
+
+Independent objects.
+
+---
+
+## Important Difference
+
+```python
+mylist = ['one', 'two']
+
+mylist1 = mylist
+mylist2 = mylist.copy()
+
+mylist[0] = 1
+```
+
+Result:
+
+```python
+mylist
+```
+
+```python
+[1, 'two']
+```
+
+```python
+mylist1
+```
+
+```python
+[1, 'two']
+```
+
+```python
+mylist2
+```
+
+```python
+['one', 'two']
+```
+
+---
+
+# Joining Lists
+
+## Using +
+
+```python
+list3 = list1 + list2
+```
+
+Output:
+
+```python
+['one', 'two', 'three', 'four',
+ 'five', 'six', 'seven', 'eight']
+```
+
+---
+
+## Using extend()
+
+```python
+list1.extend(list2)
+```
+
+Adds elements of list2 into list1.
+
+---
+
+# List Membership
+
+Check whether an item exists.
+
+```python
+'one' in list1
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+```python
+'ten' in list1
+```
+
+Output:
+
+```text
+False
+```
+
+---
+
+# Reversing Lists
+
+## reverse()
+
+```python
+list1.reverse()
+```
+
+Modifies original list.
+
+---
+
+## Slicing
+
+```python
+list1[::-1]
+```
+
+Returns reversed copy.
+
+---
+
+# Sorting Lists
+
+## Ascending Order
+
+```python
+mylist.sort()
+```
+
+Example:
+
+```python
+[9,5,2,99,12]
+```
+
+Becomes:
+
+```python
+[2,5,9,12,99]
+```
+
+---
+
+## Descending Order
+
+```python
+mylist.sort(reverse=True)
+```
+
+Output:
+
+```python
+[99,12,9,5,2]
+```
+
+---
+
+## sorted()
+
+Creates a new sorted list.
+
+```python
+sorted(mylist)
+```
+
+Original list remains unchanged.
+
+---
+
+# Loop Through a List
+
+## Simple Loop
+
+```python
+for item in list1:
+    print(item)
+```
+
+---
+
+## Using enumerate()
+
+```python
+for item in enumerate(list1):
+    print(item)
+```
+
+Output:
+
+```python
+(0, 'one')
+(1, 'two')
+(2, 'three')
+```
+
+---
+
+# count()
+
+Returns occurrence count.
+
+```python
+list10 = [
+    'one',
+    'two',
+    'three',
+    'four',
+    'one',
+    'one'
+]
+```
+
+```python
+list10.count('one')
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# all()
+
+Returns True only if every element is truthy.
+
+```python
+L1 = [1,2,3,4]
+```
+
+```python
+all(L1)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+```python
+L2 = [1,2,0,4]
+```
+
+```python
+all(L2)
+```
+
+Output:
+
+```text
+False
+```
+
+Because `0` is False.
+
+---
+
+# any()
+
+Returns True if at least one element is truthy.
+
+```python
+L1 = [0,0,0,1]
+```
+
+```python
+any(L1)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+```python
+L2 = [0,0,0]
+```
+
+```python
+any(L2)
+```
+
+Output:
+
+```text
+False
+```
+
+---
+
+# List Comprehension
+
+## What is List Comprehension?
+
+A concise way to create lists.
+
+General Syntax:
+
+```python
+[expression for item in iterable]
+```
+
+---
+
+## Example 1
+
+Convert string to list.
+
+```python
+mystring = "WELCOME"
+
+mylist = [i for i in mystring]
+```
+
+Output:
+
+```python
+['W', 'E', 'L', 'C', 'O', 'M', 'E']
+```
+
+---
+
+## Example 2
+
+Even Numbers
+
+```python
+evens = [i for i in range(40) if i % 2 == 0]
+```
+
+Output:
+
+```python
+[0,2,4,6,...,38]
+```
+
+---
+
+## Example 3
+
+Odd Numbers
+
+```python
+odds = [i for i in range(40) if i % 2 == 1]
+```
+
+---
+
+## Example 4
+
+Squares
+
+```python
+squares = [num**2 for num in range(10)]
+```
+
+Output:
+
+```python
+[0,1,4,9,16,25,36,49,64,81]
+```
+
+---
+
+## Example 5
+
+Multiply Entire List
+
+```python
+list1 = [2,3,4,5]
+
+result = [i * 10 for i in list1]
+```
+
+Output:
+
+```python
+[20,30,40,50]
+```
+
+---
+
+## Example 6
+
+Extract Digits
+
+```python
+text = "One 1 two 2 three 3"
+
+digits = [i for i in text if i.isdigit()]
+```
+
+Output:
+
+```python
+['1', '2', '3']
+```
+
+---
+
+## Example 7
+
+Extract Letters
+
+```python
+letters = [i for i in text if i.isalpha()]
+```
+
+Output:
+
+```python
+['O','n','e','t','w','o']
+```
+
+---
+
+# List vs String
+
+| Feature | List | String |
+|----------|---------|---------|
+| Ordered | Yes | Yes |
+| Indexed | Yes | Yes |
+| Mutable | Yes | No |
+| Allows Mixed Types | Yes | No |
+| Supports Slicing | Yes | Yes |
+| Supports Nested Structure | Yes | No |
+
+---
+
+# Key Points
+
+- A list is an ordered and mutable collection.
+- Lists can store multiple data types.
+- Lists support indexing and slicing.
+- Elements can be added using `append()` and `insert()`.
+- Elements can be removed using `remove()`, `pop()`, and `del`.
+- Lists can be copied using `copy()`.
+- `+` and `extend()` join lists.
+- `sort()` modifies the original list.
+- `sorted()` returns a new sorted list.
+- `all()` checks whether all values are True.
+- `any()` checks whether at least one value is True.
+- List comprehensions provide a compact way to create lists.
+
+---
+
+# Interview Definition
+
+**A list is an ordered, mutable collection of elements enclosed within square brackets (`[]`). Lists support indexing, slicing, duplication, nesting, and can store elements of different data types.**
