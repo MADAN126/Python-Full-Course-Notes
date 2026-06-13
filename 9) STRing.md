@@ -1,0 +1,1008 @@
+# Python Strings
+
+## What is a String?
+
+A string is a sequence of characters enclosed within quotes.
+
+A string can contain:
+
+- Letters
+- Numbers
+- Symbols
+- Spaces
+- Special characters
+
+Examples:
+
+```python
+"Python"
+"Hello World"
+"12345"
+"@#%$"
+```
+
+---
+
+## Characteristics of Strings
+
+- Strings are ordered collections of characters.
+- Each character has an index.
+- Strings are immutable.
+- Strings support indexing and slicing.
+- Strings can be iterated character by character.
+
+---
+
+# String Creation
+
+## Using Single Quotes
+
+```python
+mystr = 'Hello World'
+```
+
+---
+
+## Using Double Quotes
+
+```python
+mystr = "Hello World"
+```
+
+---
+
+## Using Triple Quotes
+
+Used for multi-line strings.
+
+```python
+mystr = '''Hello
+World'''
+```
+
+Output:
+
+```text
+Hello
+World
+```
+
+---
+
+```python
+mystr = """Hello
+World"""
+```
+
+Output:
+
+```text
+Hello
+World
+```
+
+---
+
+## String Concatenation During Creation
+
+```python
+mystr = (
+    'Happy '
+    'Monday '
+    'Everyone'
+)
+```
+
+Output:
+
+```text
+Happy Monday Everyone
+```
+
+---
+
+# String Repetition
+
+The `*` operator repeats a string.
+
+```python
+mystr = "Woohoo "
+mystr = mystr * 5
+```
+
+Output:
+
+```text
+Woohoo Woohoo Woohoo Woohoo Woohoo
+```
+
+---
+
+# Length of a String
+
+The `len()` function returns the number of characters.
+
+```python
+len(mystr)
+```
+
+Output:
+
+```text
+35
+```
+
+Spaces are also counted.
+
+---
+
+# String Indexing
+
+Each character has an index.
+
+```text
+H  E  L  L  O     P  Y  T  H  O  N
+0  1  2  3  4  5  6  7  8  9 10 11
+```
+
+Negative indexing:
+
+```text
+H  E  L  L  O     P  Y  T  H  O  N
+-12          ...                -1
+```
+
+---
+
+## Access First Character
+
+```python
+str1 = "HELLO PYTHON"
+
+str1[0]
+```
+
+Output:
+
+```text
+H
+```
+
+---
+
+## Access Last Character
+
+```python
+str1[-1]
+```
+
+Output:
+
+```text
+N
+```
+
+---
+
+## Access Last Character Using len()
+
+```python
+str1[len(str1)-1]
+```
+
+Output:
+
+```text
+N
+```
+
+---
+
+## Access Specific Character
+
+```python
+str1[6]
+```
+
+Output:
+
+```text
+P
+```
+
+---
+
+## Access Space Character
+
+```python
+str1[5]
+```
+
+Output:
+
+```text
+' '
+```
+
+---
+
+# String Slicing
+
+Slicing extracts a portion of a string.
+
+Syntax:
+
+```python
+string[start:end]
+```
+
+Rules:
+
+- Start index included.
+- End index excluded.
+
+---
+
+## First Five Characters
+
+```python
+str1[0:5]
+```
+
+Output:
+
+```text
+HELLO
+```
+
+---
+
+## Extract PYTHON
+
+```python
+str1[6:12]
+```
+
+Output:
+
+```text
+PYTHON
+```
+
+---
+
+## Last Four Characters
+
+```python
+str1[-4:]
+```
+
+Output:
+
+```text
+THON
+```
+
+---
+
+## Last Six Characters
+
+```python
+str1[-6:]
+```
+
+Output:
+
+```text
+PYTHON
+```
+
+---
+
+## First Four Characters
+
+```python
+str1[:4]
+```
+
+Output:
+
+```text
+HELL
+```
+
+---
+
+## First Six Characters
+
+```python
+str1[:6]
+```
+
+Output:
+
+```text
+HELLO
+```
+
+---
+
+# String Immutability
+
+## What is Immutability?
+
+Once a string is created, its characters cannot be changed.
+
+```python
+str1 = "HELLO PYTHON"
+```
+
+Attempting modification:
+
+```python
+str1[0] = 'A'
+```
+
+Output:
+
+```text
+TypeError
+```
+
+Reason:
+
+```text
+Strings are immutable.
+```
+
+---
+
+## Correct Way
+
+Create a new string.
+
+```python
+str1 = "HELLO"
+str1 = "HOLAA"
+```
+
+---
+
+# Deleting a String
+
+```python
+str1 = "HELLO"
+
+del str1
+```
+
+After deletion:
+
+```python
+print(str1)
+```
+
+Output:
+
+```text
+NameError
+```
+
+Reason:
+
+```text
+Variable no longer exists.
+```
+
+---
+
+# String Concatenation
+
+Joining strings using `+`.
+
+```python
+s1 = "Hello"
+s2 = "Asif"
+
+s3 = s1 + s2
+```
+
+Output:
+
+```text
+HelloAsif
+```
+
+---
+
+Adding space:
+
+```python
+s3 = s1 + " " + s2
+```
+
+Output:
+
+```text
+Hello Asif
+```
+
+---
+
+# Iterating Through a String
+
+Strings are iterable.
+
+```python
+mystr = "Hello"
+```
+
+```python
+for ch in mystr:
+    print(ch)
+```
+
+Output:
+
+```text
+H
+e
+l
+l
+o
+```
+
+---
+
+# enumerate()
+
+Adds an index to each character.
+
+```python
+for item in enumerate("Hello"):
+    print(item)
+```
+
+Output:
+
+```text
+(0,'H')
+(1,'e')
+(2,'l')
+(3,'l')
+(4,'o')
+```
+
+---
+
+## Convert enumerate to List
+
+```python
+list(enumerate("Hello"))
+```
+
+Output:
+
+```text
+[(0,'H'), (1,'e'), (2,'l'), (3,'l'), (4,'o')]
+```
+
+---
+
+# String Membership
+
+Checks whether a substring exists.
+
+```python
+mystr = "Hello Everyone"
+```
+
+---
+
+## Using `in`
+
+```python
+"Hello" in mystr
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+```python
+"Everyone" in mystr
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+```python
+"Hi" in mystr
+```
+
+Output:
+
+```text
+False
+```
+
+---
+
+# String Partitioning
+
+## partition()
+
+Splits at the first occurrence.
+
+```python
+text = "Python and Java and C++"
+
+text.partition("and")
+```
+
+Output:
+
+```text
+('Python ', 'and', ' Java and C++')
+```
+
+Returns:
+
+```text
+(before, separator, after)
+```
+
+---
+
+## rpartition()
+
+Splits at the last occurrence.
+
+```python
+text.rpartition("and")
+```
+
+Output:
+
+```text
+('Python and Java ', 'and', ' C++')
+```
+
+---
+
+# Important String Functions
+
+## strip()
+
+Removes spaces from both ends.
+
+```python
+text = " Hello "
+text.strip()
+```
+
+Output:
+
+```text
+Hello
+```
+
+---
+
+## lstrip()
+
+Removes left spaces.
+
+```python
+text.lstrip()
+```
+
+---
+
+## rstrip()
+
+Removes right spaces.
+
+```python
+text.rstrip()
+```
+
+---
+
+## lower()
+
+Converts to lowercase.
+
+```python
+"HELLO".lower()
+```
+
+Output:
+
+```text
+hello
+```
+
+---
+
+## upper()
+
+Converts to uppercase.
+
+```python
+"hello".upper()
+```
+
+Output:
+
+```text
+HELLO
+```
+
+---
+
+## replace()
+
+Replace substring.
+
+```python
+"Hello".replace("He","Ho")
+```
+
+Output:
+
+```text
+Hollo
+```
+
+---
+
+## Remove Spaces
+
+```python
+text.replace(" ","")
+```
+
+---
+
+# Counting Occurrences
+
+## count()
+
+```python
+text = "one two one one"
+
+text.count("one")
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# startswith()
+
+```python
+text.startswith("one")
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# endswith()
+
+```python
+text.endswith("one")
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# split()
+
+Breaks a string into a list.
+
+```python
+text = "one two three"
+
+text.split()
+```
+
+Output:
+
+```python
+['one', 'two', 'three']
+```
+
+---
+
+# String Formatting
+
+## format()
+
+```python
+item1 = 40
+item2 = 55
+item3 = 77
+
+res = "Cost: {} {} {}"
+
+print(res.format(item1,item2,item3))
+```
+
+Output:
+
+```text
+Cost: 40 55 77
+```
+
+---
+
+## Positional Formatting
+
+```python
+res = "{2} {1} {0}"
+
+print(res.format(item1,item2,item3))
+```
+
+Output:
+
+```text
+77 55 40
+```
+
+---
+
+# Alignment Functions
+
+## center()
+
+```python
+"HELLO".center(20)
+```
+
+Centers the string.
+
+---
+
+## rjust()
+
+```python
+"HELLO".rjust(20)
+```
+
+Right aligns the string.
+
+---
+
+# Search Functions
+
+## find()
+
+Returns index if found.
+
+```python
+text.find("five")
+```
+
+Output:
+
+```text
+19
+```
+
+Returns `-1` if not found.
+
+---
+
+## index()
+
+```python
+text.index("five")
+```
+
+Output:
+
+```text
+19
+```
+
+Raises an error if not found.
+
+---
+
+## rfind()
+
+Returns last occurrence index.
+
+```python
+text.rfind("one")
+```
+
+---
+
+## rindex()
+
+Returns last occurrence index.
+
+```python
+text.rindex("one")
+```
+
+---
+
+# Validation Functions
+
+## isalpha()
+
+Only letters.
+
+```python
+"abc".isalpha()
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## isalnum()
+
+Letters or digits.
+
+```python
+"abc123".isalnum()
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## isdecimal()
+
+Only decimal digits.
+
+```python
+"123".isdecimal()
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## isnumeric()
+
+Only numeric characters.
+
+```python
+"123".isnumeric()
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## isupper()
+
+Checks uppercase.
+
+```python
+"ABC".isupper()
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## islower()
+
+Checks lowercase.
+
+```python
+"abc".islower()
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# Escape Characters
+
+Used to insert special characters inside strings.
+
+Without escape character:
+
+```python
+"My favourite series is "Game of Thrones""
+```
+
+Output:
+
+```text
+SyntaxError
+```
+
+---
+
+Correct:
+
+```python
+"My favourite series is \"Game of Thrones\""
+```
+
+Output:
+
+```text
+My favourite series is "Game of Thrones"
+```
+
+---
+
+# Key Points
+
+- A string is a sequence of characters.
+- Strings are ordered and immutable.
+- Indexing starts from 0.
+- Negative indexing starts from -1.
+- Slicing extracts portions of strings.
+- Strings support iteration.
+- `in` checks membership.
+- `partition()` splits at first occurrence.
+- `rpartition()` splits at last occurrence.
+- `find()` returns position.
+- `replace()` replaces text.
+- `split()` converts string into a list.
+- `format()` inserts values into strings.
+- Escape characters allow special symbols inside strings.
+
+---
+
+# Interview Definition
+
+**A string is an immutable sequence of Unicode characters enclosed within single quotes, double quotes, or triple quotes. Strings support indexing, slicing, iteration, concatenation, formatting, and numerous built-in methods for text processing.**
